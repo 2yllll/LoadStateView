@@ -230,7 +230,9 @@ public class LoadingView extends FrameLayout {
                 }
                 break;
         }
-
+        if (mOnRetryListener != null) {
+            mOnRetryListener.onRetry(mState);
+        }
     }
 
 
@@ -334,7 +336,7 @@ public class LoadingView extends FrameLayout {
                     } else {
                         setState(LoadingState.STATE_NO_LOGIN);
                     }
-                    mOnRetryListener.onRetry();
+                    mOnRetryListener.onRetry(mState);
                 }
             }
         });
